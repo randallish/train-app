@@ -9,3 +9,23 @@ var config = {
   firebase.initializeApp(config);
 
   var database = firebase.database();
+  var name = '';
+  var destination = '';
+  var frequency = '';
+  var firstTrain = '';
+
+  $("#button").on("click",function(event) {
+    event.preventDefault();
+
+    name = $("#name-input").val().trim();
+    destination = $("#destination-input").val().trim();
+    firstTrain = $("#first-input").val().trim();
+    frequency = $("#frequency-input").val().trim();
+
+    dataRef.ref().push({
+        name: name,
+        destination: destination,
+        firstTrain: firstTrain,
+        frequency: frequency
+    });
+  });
