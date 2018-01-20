@@ -53,5 +53,13 @@ var config = {
       var childTrain = childSnapshot.val().firstTrain;
       var childFreq = childSnapshot.val().frequency;
 
+
+      var convert = moment(convert).subtract(1,"years").format("MMM DD, YYYY hh:mm A");
+      var difference = moment().diff(childTrain,"minutes");
+      var remainder = difference % childFreq;
+      console.log(remainder);
+      console.log(convert);
+      console.log(difference);
+
   });
 
