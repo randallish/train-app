@@ -57,9 +57,12 @@ var config = {
       var convert = moment(convert).subtract(1,"years").format("MMM DD, YYYY hh:mm A");
       var difference = moment().diff(childTrain,"minutes");
       var remainder = difference % childFreq;
+      var minutesAway = childFreq - remainder;
+      var nextTrain = moment().add(minutesAway,"minutes").format("hh:mm A");
       console.log(remainder);
       console.log(convert);
       console.log(difference);
-
+      console.log(minutesAway);
+      console.log(nextTrain);
   });
 
