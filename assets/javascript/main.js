@@ -14,18 +14,31 @@ var config = {
   var frequency = '';
   var firstTrain = '';
 
-  $("#button").on("click",function(event) {
+  $("#submit").on("click",function(event) {
     event.preventDefault();
 
     name = $("#name-input").val().trim();
     destination = $("#destination-input").val().trim();
     firstTrain = $("#first-input").val().trim();
     frequency = $("#frequency-input").val().trim();
+    console.log(name,destination,frequency,firstTrain);
 
-    dataRef.ref().push({
+    database.ref().push({
         name: name,
         destination: destination,
         firstTrain: firstTrain,
         frequency: frequency
     });
+
+    $("#name-input").val('');
+    $("destination-input").val('');
+    $("#first-input").val('');
+    $("#frequency-input").val('');
   });
+
+
+  database.ref().on("child_added", function(childSnapshot) {
+      console.log(childSnapshot.val().name);
+
+  });
+
