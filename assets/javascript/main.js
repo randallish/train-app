@@ -58,11 +58,21 @@ var config = {
       var difference = moment().diff(childTrain,"minutes");
       var remainder = difference % childFreq;
       var minutesAway = childFreq - remainder;
-      var nextTrain = moment().add(minutesAway,"minutes").format("hh:mm A");
+      var nextTrain = moment().add(minutesAway,"minutes");
+      var arrival = moment(nextTrain).format("hh:mm");
       console.log(remainder);
       console.log(convert);
       console.log(difference);
       console.log(minutesAway);
       console.log(nextTrain);
+      console.log(arrival);
+
+      $("#table-schedule > thead").append(
+          "<tr><td>" + childName +"</td>" +
+          "<td>" + childDest + "</td>" + 
+          "<td>" + childFreq + "</td>" +
+          "<td>" + arrival  + "</td>" +
+          "<td>" + minutesAway + "</td><tr>"
+      );
   });
 
