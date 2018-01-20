@@ -21,7 +21,11 @@ var config = {
     destination = $("#destination-input").val().trim();
     firstTrain = $("#first-input").val().trim();
     frequency = $("#frequency-input").val().trim();
-    console.log(name,destination,frequency,firstTrain);
+    console.log(name);
+    console.log(destination);
+    console.log(firstTrain);
+    console.log(frequency);
+
 
     database.ref().push({
         name: name,
@@ -39,6 +43,15 @@ var config = {
 
   database.ref().on("child_added", function(childSnapshot) {
       console.log(childSnapshot.val().name);
+      console.log(childSnapshot.val().destination);    
+      console.log(childSnapshot.val().firstTrain);    
+      console.log(childSnapshot.val().frequency);    
+
+
+      var childName = childSnapshot.val().name;
+      var childDest = childSnapshot.val().destination;
+      var childTrain = childSnapshot.val().firstTrain;
+      var childFreq = childSnapshot.val().frequency;
 
   });
 
