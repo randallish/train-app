@@ -49,6 +49,7 @@ var config = {
 // adding to database and appending to html
   database.ref().on("child_added", function(childSnapshot) {    
       // testing whats coming out of snapshot
+
     //   console.log(childSnapshot.val().name);
     //   console.log(childSnapshot.val().destination);    
     //   console.log(childSnapshot.val().firstTrain);    
@@ -79,7 +80,7 @@ var config = {
       // arrival time
       var arrival = moment(nextTrain).format("hh:mm");
 
-      // appending to the table with rows 
+      // appending to the table with cells/rows 
       $("#table-schedule > thead").append(
           "<tr><td>" + addedName +"</td>" +
           "<td>" + addedDest + "</td>" + 
